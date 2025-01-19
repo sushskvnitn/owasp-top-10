@@ -21,3 +21,12 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
+Scripts
+Lib
+Include
+
+https://github.com/mureinik/owasp-top10-demo
+
+https://github.com/AvnerCohen/owasp-hack-flask/blob/master/requirements.txt

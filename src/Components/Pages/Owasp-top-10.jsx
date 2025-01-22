@@ -21,21 +21,21 @@ const owaspData = [
     name: 'Sensitive Data Exposure',
     description: 'Sensitive Data Exposure occurs when applications fail to protect sensitive information such as passwords, credit cards, and personal details.',
     imageUrl: 'https://i.postimg.cc/nhdsyP6S/freepik-the-style-is-candid-image-photography-with-natural-2941.jpg',
-    demoLink: '/sensitive-data-demo',
+    demoLink: '/SensitiveDataExposure',
   },
   {
     id: 4,
     name: 'XML External Entities (XXE)',
     description: 'XXE flaws occur when XML input containing a reference to an external entity is processed by a weakly configured XML parser.',
     imageUrl: 'https://i.postimg.cc/Fzp4q27T/freepik-the-style-is-candid-image-photography-with-natural-2942.jpg',
-    demoLink: '/xxe-demo',
+    demoLink: '/XMLExternalEntities',
   },
   {
     id: 5,
     name: 'Broken Access Control',
     description: 'Broken Access Control occurs when an application does not properly enforce user permissions or restrict access to sensitive resources.',
     imageUrl: 'https://i.postimg.cc/pd0nP0yr/8e5b7749-3d1a-4833-84c5-e49c2ed152dd.png',
-    demoLink: '/access-control-demo',
+    demoLink: '/BrokenAccessControl',
   },
   {
     id: 6,
@@ -56,7 +56,7 @@ const owaspData = [
     name: 'Insecure Deserialization',
     description: 'Insecure Deserialization occurs when attackers exploit unsafe deserialization of data to execute malicious code or manipulate the data.',
     imageUrl: 'https://i.postimg.cc/sD2qXxn2/6b20c437-f2c3-4168-a292-825bc1ad6c45.png',
-    demoLink: '/insecure-deserialization-demo',
+    demoLink: '/InsecureDeserialization',
   },
   {
     id: 9,

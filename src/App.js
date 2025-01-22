@@ -7,8 +7,13 @@ import SQLInjection from './Components/Vulnerabilities/Injection/Sqlinjection.js
 import AdminDashboard from './Components/Vulnerabilities/Injection/Admin.jsx';
 import Footer from './Components/Utils/Footer.jsx';
 import OwaspTop10 from './Components/Pages/Owasp-top-10.jsx'
-import BrokenAuthDemo from './Components/Vulnerabilities/BrokenAccessControl/BrokenAuthDemo.jsx'
-import Dashboard from './Components/Vulnerabilities/BrokenAccessControl/DashBoard.jsx';
+import BrokenAuthDemo from './Components/Vulnerabilities/BrokenAuthControl/BrokenAuthDemo.jsx'
+import Dashboard from './Components/Vulnerabilities/BrokenAuthControl/DashBoard.jsx';
+import SensitiveDataExposure from './Components/Vulnerabilities/SensitiveDataExposure/SensitiveDataExposure.js'
+import XSSDemo from "./Components/Vulnerabilities/Xss/Xss.js"
+import InsecureDeserialization from "./Components/Vulnerabilities/InsecureDeserialization/InsecureDeserialization.js"
+import BrokenAccessControl from './Components/Vulnerabilities/BrokenAccessControl/BrokenAccessControl.js';
+import XMLExternalEntities from './Components/Vulnerabilities/XMLExternalEntities(XXE)/XMLExternalEntities.jsx'
 function App() {
   return (
     <>
@@ -21,6 +26,11 @@ function App() {
           <Route path="/OwaspTop10" element={<OwaspTop10/>} />
           <Route path="/dashboard" element={<Dashboard/>} />
           <Route path="/BrokenAuthDemo" element={<BrokenAuthDemo/>}/>
+          <Route path="/SensitiveDataExposure" element={<SensitiveDataExposure/>}/>
+          <Route path="/InsecureDeserialization" element={<InsecureDeserialization/>}/>
+          <Route path="/BrokenAccessControl" element={<BrokenAccessControl/>}/>
+          <Route path="/XMLExternalEntities" element={<XMLExternalEntities/>}/>
+          <Route path="/xss-demo" element={<XSSDemo/>}/>
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer/>

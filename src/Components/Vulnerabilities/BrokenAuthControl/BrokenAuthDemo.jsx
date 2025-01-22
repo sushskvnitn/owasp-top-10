@@ -36,7 +36,7 @@ const BrokenAuthDemo = () => {
     <div className="flex justify-center items-center h-screen bg-gray-100">
       <div className="w-full max-w-md bg-white shadow-md rounded px-8 py-6">
         <h2 className="text-2xl font-bold mb-6 text-gray-800 text-center">
-          Broken Authentication Demo
+          Broken Authentication Demo : # incomplete code do work on this 
         </h2>
 
         {/* Safe Mode Toggle Button */}

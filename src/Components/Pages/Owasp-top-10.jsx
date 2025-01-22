@@ -42,7 +42,7 @@ const owaspData = [
     name: 'Security Misconfiguration',
     description: 'Security Misconfiguration happens when security settings are improperly configured or missing, making systems vulnerable.',
     imageUrl: 'https://i.postimg.cc/hvTsYFsN/freepik-the-style-is-candid-image-photography-with-natural-2943.jpg',
-    demoLink: '/security-misconfiguration-demo',
+    demoLink: '/SecurityMisconfiguration',
   },
   {
     id: 7,
@@ -63,14 +63,14 @@ const owaspData = [
     name: 'Using Components with Known Vulnerabilities',
     description: 'Using Components with Known Vulnerabilities occurs when applications use components (libraries, frameworks, etc.) with known security flaws.',
     imageUrl: 'https://i.postimg.cc/rssBvw3z/Designer.jpg',
-    demoLink: '/known-vulnerabilities-demo',
+    demoLink: '/ComponentswithKnownVulnerability',
   },
   {
     id: 10,
     name: 'Insufficient Logging & Monitoring',
     description: 'Insufficient Logging & Monitoring means an application does not log enough data or monitor events to detect or respond to security incidents.',
     imageUrl: 'https://i.postimg.cc/JhJZ53hz/Designer-1.jpg',
-    demoLink: '/insufficient-logging-demo',
+    demoLink: '/InsufficientLoggingMonitoring',
   },
 ];
 

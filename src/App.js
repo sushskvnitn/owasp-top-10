@@ -14,6 +14,11 @@ import XSSDemo from "./Components/Vulnerabilities/Xss/Xss.js"
 import InsecureDeserialization from "./Components/Vulnerabilities/InsecureDeserialization/InsecureDeserialization.js"
 import BrokenAccessControl from './Components/Vulnerabilities/BrokenAccessControl/BrokenAccessControl.js';
 import XMLExternalEntities from './Components/Vulnerabilities/XMLExternalEntities(XXE)/XMLExternalEntities.jsx'
+import SecurityMisconfiguration from './Components/Vulnerabilities/securitymisconfiguration/securitymisconfiguration.js'
+import ComponentswithKnownVulnerability from './Components/Vulnerabilities/ComponentswithKnownVulnerability/ComponentswithKnownVulnerability.js'
+import InsufficientLoggingMonitoring from './Components/Vulnerabilities/InsufficientLoggingMonitoring/InsufficientLoggingMonitoring.js'
+import About from './Components/Pages/About.jsx'
+import Darkmode from './Components/Utils/Darkmode.js'
 function App() {
   return (
     <>
@@ -30,9 +35,14 @@ function App() {
           <Route path="/InsecureDeserialization" element={<InsecureDeserialization/>}/>
           <Route path="/BrokenAccessControl" element={<BrokenAccessControl/>}/>
           <Route path="/XMLExternalEntities" element={<XMLExternalEntities/>}/>
+          <Route path="/SecurityMisconfiguration" element={<SecurityMisconfiguration/>}/>
+          <Route path="/ComponentswithKnownVulnerability" element={<ComponentswithKnownVulnerability/>}/>
+          <Route path="/InsufficientLoggingMonitoring" element={<InsufficientLoggingMonitoring/>}/>
+          <Route path="/about" element={<About/>}/>
           <Route path="/xss-demo" element={<XSSDemo/>}/>
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <Darkmode/>
         <Footer/>
       </BrowserRouter>
     </>

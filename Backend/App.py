@@ -23,8 +23,8 @@ def init_db():
             password TEXT
         )
     ''')
-    cursor.execute("INSERT OR IGNORE INTO users (id, username, password) VALUES (1, 'admin', ?)", (sha256('admin123'.encode()).hexdigest(),))
-    cursor.execute("INSERT OR IGNORE INTO users (id, username, password) VALUES (2, 'user', ?)", (sha256('user123'.encode()).hexdigest(),))
+    cursor.execute("INSERT OR IGNORE INTO users (id, username, password) VALUES (1, 'admin', 'admin123')")
+    cursor.execute("INSERT OR IGNORE INTO users (id, username, password) VALUES (2, 'user', 'user123')")
     connection.commit()
     connection.close()
 
@@ -192,6 +192,18 @@ def xxe_demo():
     except Exception as e:
         return jsonify({"status": "error", "error": str(e)}), 400
 
+@app.route('/securitymisconfiguration/<username>', methods=['GET'])
+def security_misconfiguration(username):
+    # Intentionally exposing user data without authentication
+    connection = sqlite3.connect('users.db')
+    cursor = connection.cursor()
+    cursor.execute("SELECT id, username FROM users WHERE username = ?", (username,))
+    user_data = cursor.fetchone()
+    connection.close()
+
+    if user_data:
+        return jsonify({"id": user_data[0], "username": user_data[1]})
+    return jsonify({"error": "User  not found"}), 404
         
 if __name__ == '__main__':
     init_db()

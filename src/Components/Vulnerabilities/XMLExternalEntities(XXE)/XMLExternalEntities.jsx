@@ -40,7 +40,7 @@ function XMLExternalEntities() {
   return (
     <div className="p-4 bg-gray-100 min-h-screen">
       <h1 className="text-2xl font-bold text-center mb-6">XML External Entity (XXE) Demo</h1>
-      <div className="max-w-2xl mx-auto bg-white shadow-md rounded-md p-6">
+      <div className="max-w-2xl mx-auto  shadow-md rounded-md p-6">
         <form onSubmit={handleSubmit}>
           <label className="block text-lg font-medium mb-2">
             Enter XML Data:

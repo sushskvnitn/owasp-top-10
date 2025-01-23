@@ -2,7 +2,6 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import xml.etree.ElementTree as ET
 from defusedxml.ElementTree import parse as safe_parse
-
 import sqlite3
 from hashlib import sha256
 import pickle
@@ -20,11 +19,17 @@ def init_db():
         CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             username TEXT,
-            password TEXT
+            password TEXT,
+            role TEXT,
+            age INTEGER,
+            email TEXT
         )
     ''')
-    cursor.execute("INSERT OR IGNORE INTO users (id, username, password) VALUES (1, 'admin', 'admin123')")
-    cursor.execute("INSERT OR IGNORE INTO users (id, username, password) VALUES (2, 'user', 'user123')")
+    cursor.execute("INSERT OR IGNORE INTO users (id, username, password, role,age,email) VALUES (1, 'admin', 'admin123', 'admin', 30,'admin@gmail' )")
+    cursor.execute("INSERT OR IGNORE INTO users (id, username, password, role,age,email) VALUES (2, 'user', 'user123', 'user', 25,'user@gmail' )")
+    cursor.execute("INSERT OR IGNORE INTO users (id, username, password, role,age,email) VALUES (3, 'guest', 'guest123', 'user', 20,'guest@gmail' )")
+    cursor.execute("INSERT OR IGNORE INTO users (id, username, password, role,age,email) VALUES (4, 'test', 'test123', 'user', 22,'test@gmail' )")
+    cursor.execute("INSERT OR IGNORE INTO users (id, username, password, role,age,email) VALUES (5, 'demo', 'demo123', 'admin', 24,'demo@gmail' )")
     connection.commit()
     connection.close()
 
@@ -108,7 +113,7 @@ def secure_user_data():
     ]
     return jsonify(user_data), 200
 
-# Broken Authentication Demo
+
 @app.route('/brokenauthdemo', methods=['POST'])
 def broken_auth_demo():
     data = request.get_json()
@@ -118,7 +123,7 @@ def broken_auth_demo():
     connection = sqlite3.connect('users.db')
     cursor = connection.cursor()
 
-    # Vulnerable query (broken auth: no session or token handling)
+    # Vulnerable query (Broken Authentication: No parameterization or session handling)
     query = f"SELECT * FROM users WHERE username = '{username}' AND password = '{password}'"
     try:
         cursor.execute(query)

@@ -22,8 +22,8 @@ function Header() {
             <span className="sr-only">OWASP Top 10 Security</span>
             <img
               alt="OWASP"
-              src="https://w7.pngwing.com/pngs/360/442/png-transparent-owasp-web-application-security-computer-security-vulnerability-logo-zap-purple-violet-web-application.png"
-              className="h-8 w-auto"
+              src="https://i.postimg.cc/dQxdwSzG/Untitled-design-removebg-preview.png"
+              className="h-12 w-auto"
             />
           </Link>
         </div>
@@ -46,9 +46,6 @@ function Header() {
           </Link>
           <Link to="/about" className="text-sm font-semibold text-gray-900">
             About Us
-          </Link>
-          <Link to="/login" className="text-sm font-semibold text-gray-900 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
-            Login
           </Link>
         </PopoverGroup>
       </nav>
@@ -93,12 +90,6 @@ function Header() {
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50"
                 >
                   About Us
-                </Link>
-                <Link
-                  to="/login"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-white bg-blue-500 hover:bg-blue-600"
-                >
-                  Login
                 </Link>
               </div>
             </div>

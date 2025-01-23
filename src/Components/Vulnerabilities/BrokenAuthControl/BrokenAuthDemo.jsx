@@ -1,102 +1,83 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-const BrokenAuthDemo = () => {
+function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [response, setResponse] = useState('');
-  const [isSafeMode, setIsSafeMode] = useState(false); // State to toggle safe mode
+  const [message, setMessage] = useState('');
+
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const url = isSafeMode 
-      ? 'http://localhost:5000/brokenauthdemo' // Safe route for login
-      : 'http://localhost:5000/dashboard'; // Unsafe broken auth route
-
+    
     try {
-      const res = await fetch(url, {
+      const response = await fetch('http://127.0.0.1:5000/brokenauthdemo', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify({ username, password }),
       });
-      const data = await res.json();
 
-      if (data.Status === 200) {
-        navigate('/dashboard'); // Navigate to dashboard if login is successful
+      const data = await response.json();
+      setMessage(data.message);
+
+      if (response.ok) {
+        navigate('/dashboard')
       }
-      setResponse(data.message || 'No response from the server');
     } catch (error) {
-      setResponse('Error connecting to the server');
+      setMessage('An error occurred. Please try again.');
     }
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
-      <div className="w-full max-w-md bg-white shadow-md rounded px-8 py-6">
-        <h2 className="text-2xl font-bold mb-6 text-gray-800 text-center">
-          Broken Authentication Demo : # incomplete code do work on this 
-        </h2>
-
-        {/* Safe Mode Toggle Button */}
-       
-
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <div className="w-full max-w-lg p-4 bg-white rounded shadow-md">
+        <h2 className="mb-4 text-2xl font-bold text-center">Broken Authentication Demonstration</h2>
+        <p className="mb-4 text-sm text-gray-600">
+          Vulnerabilities in authentication (login) systems can give attackers access to user accounts and even the ability
+          to compromise an entire system using an admin account. For example, an attacker can take a list containing thousands
+          of known username/password combinations obtained during a data breach and use a script to try all those combinations
+          on a login system to see if there are any that work.
+        </p>
+        <p className="mb-4 text-sm text-gray-600">
+          Some strategies to mitigate authentication vulnerabilities are requiring two-factor authentication (2FA) as well as
+          limiting or delaying repeated login attempts using rate limiting.
+        </p>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label
-              htmlFor="username"
-              className="block text-gray-700 text-sm font-bold mb-2"
-            >
-              Username
-            </label>
+            <label htmlFor="username" className="block text-sm font-medium text-gray-700">Username</label>
             <input
               type="text"
               id="username"
+              className="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-blue-200"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Enter Username"
+              required
             />
           </div>
           <div className="mb-4">
-            <label
-              htmlFor="password"
-              className="block text-gray-700 text-sm font-bold mb-2"
-            >
-              Password
-            </label>
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
             <input
               type="password"
               id="password"
+              className="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-blue-200"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Enter Password"
+              required
             />
           </div>
           <button
-          onClick={() => setIsSafeMode(!isSafeMode)}
-          className="w-full bg-green-500 text-white py-2 px-4 rounded mb-4 hover:bg-green-600"
-        >
-          {isSafeMode ? 'Switch to Broken access Mode ' : 'Toggle Safe auth'}
-        </button>
-          <button
             type="submit"
-            className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+            className="w-full px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600"
           >
             Login
           </button>
         </form>
-
-        {response && (
-          <div className="mt-6 bg-gray-100 p-4 rounded text-gray-800">
-            <p><strong>Response:</strong> {response}</p>
-          </div>
-        )}
+        {message && <p className="mt-4 text-center text-red-500">{message}</p>}
       </div>
     </div>
   );
-};
+}
 
-export default BrokenAuthDemo;
+export default LoginPage;

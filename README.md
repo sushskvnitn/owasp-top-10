@@ -1,70 +1,168 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# OWASP Top 10 Vulnerability Demo
 
-In the project directory, you can run:
+This project demonstrates the **OWASP Top 10 vulnerabilities** in web applications, with a focus on real-world scenarios and effective mitigation techniques. The goal of this project is to raise awareness about these security risks and help developers implement best practices to build secure applications.
 
-### `npm start`
+## Table of Contents
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [Overview](#overview)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [OWASP Top 10 Vulnerabilities](#owasp-top-10-vulnerabilities)
+- [Contributing](#contributing)
+- [License](#license)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Overview
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The **OWASP Top 10** is a standard awareness document for developers and web application security. It represents a broad consensus about the most critical security risks to web applications.  
+This project showcases three demonstration modules that illustrate the vulnerabilities and how to mitigate them using **React.js** and **Python Flask**.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Features
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Detailed explanations of the **OWASP Top 10 vulnerabilities**.
+- Real-world examples for each vulnerability.
+- Interactive UI for navigating through the vulnerabilities.
+- Practical mitigation techniques to secure your web applications.
+- Code repository for exploring the implementation.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## Technologies Used
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Frontend**: [React.js](https://reactjs.org/)  
+- **Backend**: [Python Flask](https://flask.palletsprojects.com/)  
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)  
+- **Deployment**: (e.g., Vercel, AWS, or any hosting platform you use – update if applicable)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Installation
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Follow these steps to set up and run the project locally:
 
-## Learn More
+### Prerequisites
+- [Node.js](https://nodejs.org/)
+- [Python](https://www.python.org/)
+- [Git](https://git-scm.com/)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Steps
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/sushskvnitn/owasp-top-10.git
+   cd owasp-top-10
+   ```
 
-### Code Splitting
+2. **Install Frontend Dependencies**:
+   ```bash
+   cd frontend
+   npm install
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+3. **Install Backend Dependencies**:
+   ```bash
+   cd ../backend
+   pip install -r requirements.txt
+   ```
 
-### Analyzing the Bundle Size
+4. **Run the Backend Server**:
+   ```bash
+   flask run
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+5. **Run the Frontend**:
+   ```bash
+   cd ../frontend
+   npm start
+   ```
 
-### Making a Progressive Web App
+6. Open your browser and visit: `http://localhost:3000`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+1. Explore the **OWASP Top 10 vulnerabilities** through an interactive UI.
+2. View detailed descriptions and real-world examples of each vulnerability.
+3. Learn effective mitigation techniques for secure application development.
+4. Access the GitHub repository for implementation details and source code.
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## OWASP Top 10 Vulnerabilities
 
-### `npm run build` fails to minify
+This project covers the following vulnerabilities:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. **Injection**: Prevent SQL and command injection attacks by sanitizing inputs.
+2. **Broken Authentication**: Implement strong authentication mechanisms and session management.
+3. **Sensitive Data Exposure**: Encrypt sensitive data both in transit and at rest.
+4. **XML External Entities (XXE)**: Securely configure XML parsers to prevent XXE attacks.
+5. **Broken Access Control**: Enforce proper access controls for user roles and data.
+6. **Security Misconfiguration**: Harden security settings and disable unnecessary services.
+7. **Cross-Site Scripting (XSS)**: Sanitize user inputs to prevent malicious script execution.
+8. **Insecure Deserialization**: Avoid deserializing untrusted data to prevent code execution.
+9. **Using Components with Known Vulnerabilities**: Keep dependencies up to date and secure.
+10. **Insufficient Logging & Monitoring**: Implement proper logging and monitoring to detect attacks.
+
+---
+
+## Contributing
+
+Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bugfix:
+   ```bash
+   git checkout -b feature-name
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -m "Add feature name"
+   ```
+4. Push your branch to your forked repository:
+   ```bash
+   git push origin feature-name
+   ```
+5. Submit a pull request.
+
+---
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+## Acknowledgements
+
+- [OWASP Foundation](https://owasp.org/) for providing the **OWASP Top 10** list.
+- [React.js](https://reactjs.org/) and [Python Flask](https://flask.palletsprojects.com/) for making this project possible.
+- [Tailwind CSS](https://tailwindcss.com/) for simplifying styling.
+
+---
+
+### Demo
+
+ ![image](https://github.com/user-attachments/assets/c4950a4d-92e7-4135-95e1-106f65a499c7)
+
+
+---
+
+For more details, visit the [GitHub Repository](https://github.com/sushskvnitn/owasp-top-10).
+
+
+
+### Key Points:
+- **Installation**: Clear step-by-step instructions for setting up the project.  
+- **Features**: A brief list of what the project provides.  
+- **Acknowledgements**: Credit to relevant tools and frameworks.  
+- **Demo**: Placeholder for screenshots or hosted links to showcase the app.  
+
+Let me know if you'd like further refinements or additional sections!
